@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Track {
@@ -7,6 +8,7 @@ public class Track {
     public String genre;
     public int time;
     public int date;
+    public List<Artist> collaboration = new ArrayList<>();
 
     
     /** 
@@ -23,6 +25,18 @@ public class Track {
         this.date = date;
         this.time = time;
         this.beatmaker = beatmaker;
+    }
+
+    public void setCollaboration(List<Artist> artists) {
+        this.collaboration.addAll(artists);
+    }
+
+    public List<Artist> getCollaboration(){
+        return collaboration;
+    }
+
+    public void addCollaborator(Artist artist) {
+        this.collaboration.add(artist);
     }
 
     public void setTime(int time) {
