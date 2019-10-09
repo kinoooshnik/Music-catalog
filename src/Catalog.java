@@ -82,6 +82,17 @@ public class Catalog {
         return trackList;
     }
 
+    public HashSet<Track> getTracksByTime(int time){
+        HashSet <Track> trackList = new HashSet<>();
+        for (int i = 0; i < catalog.size(); i++) {
+            for (int j = 0; j < catalog.get(i).tracks.size(); j++) {
+                trackList.add(catalog.get(i).tracks.get(j).isTimeOfTrackMoreThan(time);
+            }
+        }
+        trackList.remove(null);
+        return trackList;
+    }
+
     
     /** 
      * @param date

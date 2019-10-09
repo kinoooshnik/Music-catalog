@@ -4,6 +4,7 @@ public class Track {
     public String name;
     public Artist artist;
     public String genre;
+    public int time;
     public int date;
 
     
@@ -14,11 +15,20 @@ public class Track {
      * @param date
      * @return 
      */
-    public Track(String name, Artist artist, String genre, int date) {
+    public Track(String name, Artist artist, String genre, int date, int time) {
         this.name = name;
         this.artist = artist;
         this.genre = genre;
         this.date = date;
+        this.time = time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return ((time / 60) + ":" + (time % 60);
     }
 
     
@@ -108,6 +118,14 @@ public class Track {
         }
     }
 
+    public Track isTimeOfTrackMoreThan(int time) {
+        if (this.time >= time) {
+            return this;
+        } else {
+            return null;
+        }
+    }
+
     
     /** 
      * @param date
@@ -155,7 +173,6 @@ public class Track {
         }
         return artistList;
     }
-
     
     /** 
      * @return String
