@@ -3,6 +3,7 @@ import java.util.HashSet;
 public class Track {
     public String name;
     public Artist artist;
+    public Beatmaker beatmaker;
     public String genre;
     public int time;
     public int date;
@@ -15,12 +16,13 @@ public class Track {
      * @param date
      * @return 
      */
-    public Track(String name, Artist artist, String genre, int date, int time) {
+    public Track(String name, Artist artist, String genre, int date, int time, Beatmaker beatmaker) {
         this.name = name;
         this.artist = artist;
         this.genre = genre;
         this.date = date;
         this.time = time;
+        this.beatmaker = beatmaker;
     }
 
     public void setTime(int time) {
