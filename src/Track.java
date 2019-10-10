@@ -134,6 +134,14 @@ public class Track {
         }
     }
 
+    public Track getTrackByName(String name){
+        if (this.name.equals(name)){
+            return this;
+        } else {
+            return null;
+        }
+    }
+
     public Track isTimeOfTrackMoreThan(int time) {
         if (this.time >= time) {
             return this;

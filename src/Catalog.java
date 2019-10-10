@@ -82,6 +82,17 @@ public class Catalog {
         return trackList;
     }
 
+    public HashSet<Track> getTracksByName(String name){
+        HashSet <Track> trackList = new HashSet<>();
+        for (int i = 0; i < catalog.size(); i++) {
+            for (int j = 0; j < catalog.get(i).tracks.size(); j++) {
+                trackList.add(catalog.get(i).tracks.get(j).getTrackByName(name));
+            }
+        }
+        trackList.remove(null);
+        return trackList;
+    }
+
     public HashSet<Track> getTracksByTime(int time){
         HashSet <Track> trackList = new HashSet<>();
         for (int i = 0; i < catalog.size(); i++) {
@@ -235,6 +246,13 @@ public class Catalog {
     public HashSet<Track> getTracksByArtistAndDate (Artist artist, int date) {
         HashSet<Track> trackList = new HashSet<>();
         trackList.addAll(this.getTracksByDate(date));
+        trackList.retainAll(this.getTracksByArtist(artist));
+        return trackList;
+    }
+
+    public HashSet<Track> findTracksByName(String name) {
+        HashSet<Track> trackList = new HashSet<>();
+        trackList.addAll(this.getTracksByName(name));
         trackList.retainAll(this.getTracksByArtist(artist));
         return trackList;
     }
